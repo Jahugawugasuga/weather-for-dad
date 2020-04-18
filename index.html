@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Eric Weather Data</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div id= "1">
+    <div class="city4"></div>
+    <div class="description4"></div>
+    <div class="temp4"></div>
+    <div class="wind4"></div>
+    <div class="humidity4"></div>
+</div>
+<br>
+<hr>
+  <div id = "2">
+    <div class="city5"></div>
+    <div class="description5"></div>
+    <div class="temp5"></div>
+    <div class="wind5"></div>
+    <div class="humidity5"></div>
+
+  </div>
+  <br>
+  <hr>
+  <div id = "3">
+    <div class="city1"></div>
+    <div class="description1"></div>
+    <div class="temp1"></div>
+    <div class="wind1"></div>
+    <div class="humidity1"></div>
+  </div>
+  <br>
+  <hr>
+  <div id = "4">
+    <div class="city2"></div>
+    <div class="description2"></div>
+    <div class="temp2"></div>
+    <div class="wind2"></div>
+    <div class="humidity2"></div>
+  </div>
+  <br>
+  <hr>
+  <div id = "5">
+    <div class="city3"></div>
+    <div class="description3"></div>
+    <div class="temp3"></div>
+    <div class="wind3"></div>
+    <div class="humidity3"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // This is our API key. Add your own API key between the ""
+    var APIKey = "b00dff5ac139a6450487fd6a98bd0505";
+
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=st+george&appid=" + APIKey;
+
+    // We then created an AJAX call
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      
+      $(".city1").text(response.name + " City"); 
+      $(".description1").text(response.weather[0].description + " conditions");
+      $(".wind1").text(response.wind.speed + " wind speed in mph");
+      var temp =((response.main.temp) - 273.15)
+      $(".temp").text(temp.toFixed(0) + " degrees Celcius"); 
+      $(".humidity1").text(response.main.humidity + "% Humidity");
+
+
+      // Create CODE HERE to Log the queryURL
+      // Create CODE HERE to log the resulting object
+      // Create CODE HERE to calculate the temperature (converted from Kelvin)
+      // Create CODE HERE to transfer content to HTML
+      // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
+      // Create CODE HERE to dump the temperature content into HTML
+
+    });
+    var APIKey = "b00dff5ac139a6450487fd6a98bd0505";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Cardston&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $(this).parent().attr("id", "Cardston")
+      $(".city2").text(response.name + " City"); 
+      $(".description2").text(response.weather[0].description + " conditions");
+      $(".wind2").text(response.wind.speed + " wind speed in mph");
+      var temp =((response.main.temp) - 273.15)
+      $(".temp2").text(temp.toFixed(0) + " degrees Celcius"); 
+      $(".humidity2").text(response.main.humidity + "% Humidity");
+    });
+    var APIKey = "b00dff5ac139a6450487fd6a98bd0505";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Calgary&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $(this).parent().attr("id", "Calgary")
+      $(".city3").text(response.name + " City"); //works
+      $(".description3").text(response.weather[0].description + " conditions");
+      $(".wind3").text(response.wind.speed + " wind speed in mph");
+      var temp =((response.main.temp) - 273.15)
+      $(".temp3").text(temp.toFixed(0) + " degrees Celcius"); //works
+      $(".humidity3").text(response.main.humidity + "% Humidity"); //works
+    });
+    var APIKey = "b00dff5ac139a6450487fd6a98bd0505";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Medicine+Hat&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $(this).parent().attr("id", "Medicine Hat")
+      $(".city4").text(response.name + " City"); 
+      $(".description4").text(response.weather[0].description + " conditions");
+      $(".wind4").text(response.wind.speed + " wind speed in mph");
+      var temp =((response.main.temp) - 273.15)
+      $(".temp4").text(temp.toFixed(0) + " degrees Celcius"); 
+      $(".humidity4").text(response.main.humidity + "% Humidity");
+    });
+    var APIKey = "b00dff5ac139a6450487fd6a98bd0505";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bigfork&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $(this).parent().attr("id", "Bigfork")
+      $(".city5").text(response.name + " City"); 
+      $(".description5").text(response.weather[0].description + " conditions");
+      $(".wind5").text(response.wind.speed + " wind speed in mph");
+      var temp =((response.main.temp) - 273.15)
+      $(".temp5").text(temp.toFixed(0) + " degrees Celcius"); 
+      $(".humidity5").text(response.main.humidity + "% Humidity");
+    });
+  </script>
+</body>
+
+</html>
