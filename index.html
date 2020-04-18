@@ -70,7 +70,7 @@
       $(".description1").text(response.weather[0].description + " conditions");
       $(".wind1").text(response.wind.speed + " wind speed in mph");
       var temp =((response.main.temp) - 273.15)
-      $(".temp").text(temp.toFixed(0) + " degrees Celcius"); 
+      $(".temp1").text(temp.toFixed(0) + " degrees Celcius"); 
       $(".humidity1").text(response.main.humidity + "% Humidity");
 
 
